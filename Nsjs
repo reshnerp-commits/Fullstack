@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+:root {
+  --cream: #f5f0c9;
+  --brown: #351400;
+  --gold: #b18a43;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: Georgia, serif;
+  line-height: 1.7;
+}
+
+.page-wrapper {
+  animation: fadeIn 1s ease;
+}
+
+/* ===== 2. ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* ===== 3. HEADER ===== */
+
+.intro header {
+  margin: 30px 12px;
+  padding: 60px 20px;
+  text-align: center;
+  border: 8px double var(--brown);
+
+  background: repeating-conic-gradient(
+    #e9d9a7 0deg 18deg,
+    #d9c28a 18deg 36deg
+  );
+
+  animation: fadeIn 1.2s ease;
+}
+
+h1, h2, h3 {
+  font-family: 'Special Elite', Georgia, serif;
+}
+
+.intro h1 {
+  font-size: clamp(2rem, 7vw, 5rem);
+  text-transform: uppercase;
+  text-shadow: 3px 3px var(--gold);
+  animation: fadeIn 1.5s ease;
+}
+
+.intro h2 {
+  color: #8a612b;
+}
+
+/* ===== 4. CONTENT ===== */
+
+.summary {
+  margin: 20px;
+  padding: 20px;
+  border-left: 6px solid var(--gold);
+  background: #fffbdc;
+}
+
+.preamble,
+.main.supporting {
+  padding: 0 25px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+h3 {
+  width: fit-content;
+  max-width: 100%;
+  margin: 30px auto 20px;
+  padding: 8px 20px;
+
+  color: var(--cream);
+  background: var(--brown);
+  border: 2px solid var(--gold);
+  text-align: center;
+  text-transform: uppercase;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ===== 5. LINKS ===== */
+
+a {
+  color: #80551f;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+/* ===== 6. SIDEBAR ===== */
+
+.sidebar {
+  margin: 20px 12px;
+  padding: 15px;
+  color: var(--cream);
+  background: var(--brown);
+  border: 4px double var(--gold);
+}
+
+.sidebar ul {
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 8px 0;
+  padding: 10px;
+  background: #48240c;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.sidebar li:hover {
+  transform: translateX(5px);
+}
+
+.sidebar a {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+/* Remove ribbons from sidebar headings */
+
+.sidebar h3 {
+  color: var(--brown);
+  background: var(--cream);
+  animation: none;
+}
+
+/* ===== 7. FOOTER ===== */
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 25px;
+  background: #e4d5a4;
+  border-top: 5px double var(--brown);
+}
+
+footer a {
+  padding: 5px 12px;
+  color: var(--cream);
+  background: var(--brown);
+  text-decoration: none;
+}
+
+footer a:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== 8. DESKTOP LAYOUT ===== */
+
+@media (min-width: 900px) {
+  .page-wrapper {
+    position: relative;
+    padding-left: 220px;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 195px;
+  }
+
+  .intro header {
+    margin-top: 35px;
+  }
+}
+
+/* ===== 9. MOBILE LAYOUT ===== */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  .intro header {
+    padding: 35px 12px;
+    border-width: 5px;
+  }
+
+  .intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .preamble,
+  .main.supporting {
+    padding: 0 15px;
+  }
+}
+
+/* ===== 10. REDUCE ANIMATION IF REQUESTED ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
